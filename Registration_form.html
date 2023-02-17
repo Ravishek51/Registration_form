@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinup Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Poppins&display=swap');
+        body {
+            background: rgb(219, 207, 203);
+            background: linear-gradient(90deg, rgb(228, 200, 140) 0%, rgb(167, 114, 192) 35%, rgb(216, 180, 201) 100%);
+        }
+        
+        h1 {
+            font-size: 45px;
+            background: -webkit-linear-gradient(#381703, #3e748d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-right: 8px;
+            padding-bottom: 10px;
+            text-align: end;
+            font-family: 'Caveat', cursive;
+            font-family: 'Poppins', sans-serif;
+            justify-content: end;
+        }
+        
+        .box {
+            background: rgb(186, 201, 198);
+            background: linear-gradient(90deg, rgb(118, 184, 178) 100%);
+            position: absolute;
+            top: 150px;
+            right: 15px;
+            width: 360px;
+            height: 300px;
+            border-top: 30px;
+            border-bottom: 30px;
+            border-left: 30px;
+            border-radius: 50px 20px;
+        }
+        
+        .box {
+            font-size: 16px;
+            padding: 25px;
+        }
+        
+        .box input {
+            width: 171px;
+            font-size: 15px;
+            outline: none;
+            border: 0;
+            outline: none;
+            background: transparent;
+            border-bottom: 1px solid rgb(236, 229, 229);
+        }
+        
+        .box span {
+            font-size: 10px;
+            color: red;
+        }
+        
+        #btn {
+            font-size: 20px;
+            border-radius: 10px;
+            background: linear-gradient(to right, #7095cc, #b69450);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sinup For student </h1><br><br>
+
+    <form name="form1" method="post" onsubmit="return Validation()">
+        <div>
+            <div class="box">
+                Name: <input type="text" name="name" placeholder="Enter your name "><br><span id="name"></span><br><br> Password: <input type="password" name="password" placeholder="password"><br><span id="password"></span><br><br> Confirm password:
+                <input type="password" name="cpassword" placeholder=" Confirm password"><br><span id="cpassword"></span><br><br> Contact: <input type="number" name="contact" placeholder="Contact"><br><span id="contact"></span><br><br> Email :
+                <input type="email" name="email" placeholder="Email id"><br><span id="email" required></span><br><br>
+
+                <input type="submit" value="Submit" id="btn">
+            </div>
+        </div>
+    </form>
+
+
+
+    <script>
+        function Validation() {
+            var name = document.form1.name.value;
+            var password = document.form1.password.value;
+            var cpassword = document.form1.cpassword.value;
+            if (name == null || name == "") {
+                document.getElementById("name").innerHTML = "You Got error"
+                return false;
+            } else if (password.length < 6) {
+                document.getElementById("password").innerHTML = "Please enter grater then 6"
+                return false;
+            } else if (password == cpassword) {
+                return true;
+            }
+
+            var num = document.form1.contact.value
+            if (num > 10) {
+                document.getElementById("contact").innerHTML = "Enter Right  digit"
+                return false;
+
+            }
+
+            var email = document.form1.email.value
+            var at = indexof('@');
+            var dot = indexof('.');
+            if (at < 1 || dot < at + 2 || dot + 2 >= email.length) {
+                alert("not coorect")
+                return false
+
+            }
+            console.log("Name: " + name)
+            console.log("Password: " + password)
+            console.log("Contact number: " + num)
+            console.log("Email: " + email)
+
+
+        }
+    </script>
+</body>
+
+</html>
